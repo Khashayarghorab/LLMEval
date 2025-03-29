@@ -54,7 +54,7 @@ if st.button("Generate Responses") and api_key and custom_task:
             status.update(label="Setting up Dragonshield multi-agent system...")
             
             # Common LLM configuration
-            model_config = {"config_list": [{"model": "gpt-4o-2024-08-06", "temperature": 0.1, "api_key": api_key}]}
+            model_config = {"config_list": [{"model": "gpt-4-1106-preview", "temperature": 0.1, "api_key": api_key}]}
             
             # Initialize agents for Dragonshield multi-agent system
             user_proxy = autogen.UserProxyAgent(
@@ -166,7 +166,7 @@ if st.button("Generate Responses") and api_key and custom_task:
             Determine preventive measures for high and moderate-risk hazards. Compile all data into a structured table listing job steps, associated hazards, their assessments, and preventive measures: Job Step, Hazard, Likelihood (P), Impact (C), and Preventive Measures. Create a final comprehensive report summarizing the findings and recommendations. Communication should be formal and technical, providing clear and precise information."""
             
             jsa_advisor = client.chat.completions.create(
-                model="gpt-4o-2024-08-06",
+                model="gpt-4-1106-preview",
                 messages=[
                     {"role": "system", "content": jsa_advisor_prompt},
                     {"role": "user", "content": custom_task}
