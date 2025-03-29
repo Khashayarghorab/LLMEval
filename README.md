@@ -8,8 +8,8 @@ This project provides a platform for evaluating LLM responses in the context of 
 ## Features
 
 - Blind comparison of JSA reports from:
-  - **Dragonshield**: A multi-agent system using `GPT-4-1106-preview` with specialized agents
-  - **JSA Advisor**: A single-agent system using `GPT-4-1106-preview`
+  - **Dragonshield**: A multi-agent system using `gpt-4o-2024-08-06` with specialized agents
+  - **JSA Advisor**: A single-agent system using `gpt-4o-2024-08-06`
 - Multi-agent Dragonshield system with specialized agents:
   - Project Manager Agent
   - Safety Inspector Agent
@@ -64,9 +64,9 @@ This project provides a platform for evaluating LLM responses in the context of 
 
 ## Models Used
 
-- **Dragonshield**: A multi-agent system using OpenAI's `GPT-4-1106-preview` with specialized agent roles
-- **JSA Advisor**: A single-agent system using OpenAI's `GPT-4-1106-preview`
-- **JSA Judge**: An impartial evaluator using `GPT-4-1106-preview` to compare responses
+- **Dragonshield**: A multi-agent system using OpenAI's `gpt-4o-2024-08-06` with specialized agent roles
+- **JSA Advisor**: A single-agent system using OpenAI's `gpt-4o-2024-08-06`
+- **JSA Judge**: An impartial evaluator using `gpt-4o-2024-08-06` to compare responses
 
 ## License
 

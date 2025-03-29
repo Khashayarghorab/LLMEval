@@ -100,7 +100,7 @@ def run_jsa_evaluation(task, api_key, status):
         status.update(label=f"Setting up Dragonshield multi-agent system for task: {task[:30]}...")
         
         # Common LLM configuration
-        model_config = {"config_list": [{"model": "GPT-4-1106-preview", "temperature": 0.1, "api_key": api_key}]}
+        model_config = {"config_list": [{"model": "gpt-4o-2024-08-06", "temperature": 0.1, "api_key": api_key}]}
         
         # Initialize agents with the exact prompts provided
         user_proxy = autogen.UserProxyAgent(
@@ -218,7 +218,7 @@ def run_jsa_evaluation(task, api_key, status):
         Determine preventive measures for high and moderate-risk hazards. Compile all data into a structured table listing job steps, associated hazards, their assessments, and preventive measures: Job Step, Hazard, Likelihood (P), Impact (C), and Preventive Measures. Create a final comprehensive report summarizing the findings and recommendations. Communication should be formal and technical, providing clear and precise information."""
         
         jsa_advisor = client.chat.completions.create(
-            model="GPT-4-1106-preview",
+            model="gpt-4o-2024-08-06",
             messages=[
                 {"role": "system", "content": jsa_advisor_prompt},
                 {"role": "user", "content": task}
@@ -270,7 +270,7 @@ def run_jsa_evaluation(task, api_key, status):
         """
         
         jsa_judge = client.chat.completions.create(
-            model="GPT-4-1106-preview",
+            model="gpt-4o-2024-08-06",
             messages=[
                 {"role": "system", "content": judge_prompt},
                 {"role": "user", "content": f"The task was: {task}\n\nResponse A:\n{jsa_advisor_response}\n\nResponse B:\n{dragonshield_response}"}
@@ -283,7 +283,7 @@ def run_jsa_evaluation(task, api_key, status):
         status.update(label=f"Comparing responses (Second run) for task: {task[:30]}...")
         
         jsa_judge_swapped = client.chat.completions.create(
-            model="GPT-4-1106-preview",
+            model="gpt-4o-2024-08-06",
             messages=[
                 {"role": "system", "content": judge_prompt},
                 {"role": "user", "content": f"The task was: {task}\n\nResponse A:\n{dragonshield_response}\n\nResponse B:\n{jsa_advisor_response}"}
